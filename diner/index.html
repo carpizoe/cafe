@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Aluze</title>
+</head>
+
+<body>
+    <button id="backToTopBtn" title="Go to top" onclick="topFunction()"><i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i></button>
+
+    <div class="navbar" id="navbar">
+        <div id="social">
+            <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+                    <a href="facebook.com"><i class="fa fa-facebook fa-stack-1x" aria-hidden="true"></i></a>
+            </span>
+            <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+                    <a href="instagram.com"><i class="fa fa-instagram fa-stack-1x" aria-hidden="true"></i></a>
+            </span>
+            <a href="index.html "><span class="highlight ">Follow us!</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href=" ">Home</a>
+            <a href=" ">About</a>
+            <a href=" ">Menu</a>
+            <a href=" ">Gallery</a>
+            <a href=" ">News</a>
+            <a href=" ">Contact</a>
+            <a href=" ">Reservations</a>
+        </nav>
+        <a href="" id="booking">Booking</a>
+    </div>
+    <header class="v-header v-container">
+        <div class="fullscreen-video-wrap ">
+            <video src="img/foodPrep.mp4" autoplay="true" loop="true"></video>
+        </div>
+
+
+        <div class="header-overlay"></div>
+        <div class="header-content ">
+            <h1>Aluze</h1>
+            <div>
+                <hr>
+                <p>Monday - Friday: 8 AM - 1 AM</p>
+                <p>Weekends: 8 AM - 3 PM</p>
+            </div>
+            <a href="reservations.html" class="btn">Reservations</a>
+        </div>
+    </header>
+
+    <section class="a">
+        <div>
+            <h1>Our Story</h1>
+            <h2>More than a Cafe</h2>
+            <hr>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quidem obcaecati tenetur neque dolorem. Quia, aliquid, illo a veritatis reprehenderit porro expedita vitae, nesciunt similique ab quisquam dolorem molestias rerum.</p>
+        </div>
+
+    </section>
+
+    <div class="wrap">
+        <div id="arrow-left" class="arrow"></div>
+        <div id="slider">
+            <div class="slide slide1">
+                <div class="slide-content">
+                    <span>Image One</span>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="slide-content">
+                    <span>Image Two</span>
+                </div>
+            </div>
+            <div class="slide slide3">
+                <div class="slide-content">
+                    <span>Image Three</span>
+                </div>
+            </div>
+            <div class="slide slide4">
+                <div class="slide-content">
+                    <span>Image Four</span>
+                </div>
+            </div>
+        </div>
+        <div id="arrow-right" class="arrow"></div>
+    </div>
+
+    <section class="b">
+        <h1>Menu</h1>
+        <h2>Our Story</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quidem obcaecati tenetur neque dolorem. Quia, aliquid, illo a veritatis reprehenderit porro expedita vitae, nesciunt similique ab quisquam dolorem molestias rerum.</p>
+    </section>
+
+
+    <!-- Image Slider Script -->
+    <script>
+        let sliderImages = document.querySelectorAll('.slide'),
+            arrowLeft = document.querySelector('#arrow-left'),
+            arrowRight = document.querySelector('#arrow-right'),
+            current = 0;
+
+        //Clears all images
+        function reset() {
+            for (let i = 0; i < sliderImages.length; i++) {
+                sliderImages[i].style.display = 'none';
+            }
+        }
+
+        // Initializes slider
+        function startSlide() {
+            reset();
+            sliderImages[0].style.display = 'block';
+        }
+
+        //Show previous slide
+        function slideLeft() {
+            reset();
+            sliderImages[current - 1].style.display = 'block';
+            current--;
+        }
+
+        //Show next slide
+        function slideRight() {
+            reset();
+            sliderImages[current + 1].style.display = 'block';
+            current++;
+        }
+
+        //Left Arrow click
+        arrowLeft.addEventListener('click', function() {
+            // go to last image if at first image in array
+            if (current === 0) {
+                current = sliderImages.length;
+            }
+            slideLeft();
+        });
+
+        //Right Arrow click
+        arrowRight.addEventListener('click', function() {
+            // go to last image if at first image in array
+            if (current === sliderImages.length - 1) {
+                current = -1;
+            }
+            slideRight();
+        });
+
+        startSlide();
+    </script>
+
+    <!-- On Scroll Script -->
+    <script>
+        var x = 0;
+
+        function changeHeaderColor() {
+
+            document.getElementById("navbar").style.background = "black";
+        }
+    </script>
+
+    <!-- Back to Top -->
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.querySelector('header').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
